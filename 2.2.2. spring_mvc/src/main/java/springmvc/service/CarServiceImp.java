@@ -1,8 +1,8 @@
-package service;
+package springmvc.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Car;
+import springmvc.model.Car;
 
 public class CarServiceImp implements CarService {
 

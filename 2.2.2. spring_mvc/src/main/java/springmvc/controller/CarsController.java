@@ -1,12 +1,12 @@
-package web.controller;
+package springmvc.controller;
 
-import model.Car;
+import springmvc.model.Car;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import service.CarServiceImp;
+import springmvc.service.CarServiceImp;
 
 import java.util.List;
 
@@ -15,19 +15,19 @@ import java.util.List;
 public class CarsController {
 
   @Value("${title_en}")
-  private String cars;
+  private String enTitle;
 
   @Value("${title_ru}")
-  private String mach;
+  private String ruTitle;
 
   @GetMapping("/cars")
   public String printCars(Model model, String locale) {
     List<Car> carList = new CarServiceImp().getAllCars();
     model.addAttribute("cars", carList);
     if ("en".equals(locale)) {
-      model.addAttribute("title", cars);
+      model.addAttribute("title", enTitle);
     } else if ("ru".equals(locale)) {
-      model.addAttribute("title", mach);
+      model.addAttribute("title", ruTitle);
     } else {
       model.addAttribute("title", "Empty");
     }

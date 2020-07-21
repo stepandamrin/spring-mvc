@@ -1,4 +1,4 @@
-package web.controller;
+package springmvc.controller;
 
 import java.util.ArrayList;
 import java.util.List;
